@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Version') {
       steps {
-        sh 'npm version'
+        npm version
       }
     }
     // stage('Clone') {
