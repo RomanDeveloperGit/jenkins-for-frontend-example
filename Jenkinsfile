@@ -1,12 +1,12 @@
 pipeline {
   agent any
   tools {
-    nodejs '20.2.0'
+    nodejs 'node'
   }
   stages {
     stage('Version') {
       steps {
-        npm version
+        bat 'npm version'
       }
     }
     // stage('Clone') {
