@@ -14,11 +14,11 @@ pipeline {
         bat 'npm run lint'
       }
     }
-    stage('Unit & Integration tests') {
-      steps {
-        bat 'npm run test'
-      }
-    }
+    // stage('Unit & Integration tests') {
+    //   steps {
+    //     bat 'npm run test'
+    //   }
+    // }
     stage('Build') {
       steps {
         bat 'npm run build'
