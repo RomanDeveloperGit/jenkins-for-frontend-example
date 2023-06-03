@@ -2,6 +2,13 @@ pipeline {
   agent any
 
   stages {
+    stage('Clone') {
+      steps {
+        git branch: 'master',
+            credentialsId: '121231k3jkj2kjkjk',
+            url: 'https://github.com/RomanDeveloperGit/jenkins-for-frontend-example.git'
+      }
+    }
     stage('Install node modules') {
       steps {
         sh 'npm ci'
