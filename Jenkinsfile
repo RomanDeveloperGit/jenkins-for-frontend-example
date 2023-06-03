@@ -2,29 +2,34 @@ pipeline {
   agent any
 
   stages {
-    stage('Hello') {
+    stage('Install node modules') {
       steps {
-          echo 'Hello World'
+        sh 'npm ci'
+      }
+    }
+    stage('Check linter') {
+      steps {
+        sh 'npm run lint'
+      }
+    }
+    stage('Unit & Integration tests') {
+      steps {
+        sh 'npm run test'
       }
     }
     stage('Build') {
       steps {
-          echo 'Building...'
-      }
-    }
-    stage('Deploy') {
-      steps {
-          echo 'Deploying...'
+        sh 'npm run build'
       }
     }
     stage('Test') {
       steps {
-          echo 'Testing...'
+        echo 'QA testing...'
       }
     }
-    stage('Release') {
+    stage('Deploy') {
       steps {
-          echo 'Releasing...'
+        echo 'Deploying...'
       }
     }
   }
