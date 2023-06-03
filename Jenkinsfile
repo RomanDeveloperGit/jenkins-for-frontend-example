@@ -1,18 +1,25 @@
 pipeline {
   agent any
-
+  tools {
+    nodejs '18.12.1'
+  }
   stages {
-    stage('Clone') {
+    stage('Version') {
       steps {
-        git branch: 'master',
-            url: 'https://github.com/RomanDeveloperGit/jenkins-for-frontend-example.git'
+        sh 'npm version'
       }
     }
-    stage('Install node modules') {
-      steps {
-        sh 'npm ci'
-      }
-    }
+    // stage('Clone') {
+    //   steps {
+    //     git branch: 'master',
+    //         url: 'https://github.com/RomanDeveloperGit/jenkins-for-frontend-example.git'
+    //   }
+    // }
+    // stage('Install node modules') {
+    //   steps {
+    //     sh 'npm ci'
+    //   }
+    // }
     // stage('Check linter') {
     //   steps {
     //     sh 'npm run lint'
